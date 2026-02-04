@@ -1,6 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 export default function Navbar() {
+
+  const [sticky,setsticky] =useState(false)
+  useEffect(()=>{
+    const handleScroll =()=>{
+      if(window.scrollY>0){
+        setsticky(true)
+      }else{
+        setsticky(false)
+      }
+      Window.addEventListener('scroll',handleScroll 
+      )
+      return ()=>{
+        window.removeEventListener('scroll',handleScroll)
+      }
+    }
+  },[])
   const naviteams = (<>
   
    <li><a>Home</a></li>
@@ -11,11 +27,13 @@ export default function Navbar() {
   </>)
   return (
     <> 
-   <div className="max-w-screen-2xl conatainer mx-auto md:px-20 px-4">
+   <div className={`max-w-screen-2xl conatainer mx-auto md:px-20 px-4 fixed top-0 right-0 left-0 ${
+    sticky?"sticky-navbar shadow-md bg-base-300 duration-300 transition-all ease-in-out":" "
+   }`}>
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-7 6h16" /> </svg>
       </div>
       <ul
         tabIndex="-1"
@@ -38,8 +56,8 @@ export default function Navbar() {
     </ul>
   </div>
   <div className='hidden md:block'>   
-  <label className="input">
-  <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <label className=" px-3 py-2 boarder rounded-md input grow outline-none">
+  <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 2 26 24">
     <g
       strokeLinejoin="round"
       strokeLinecap="round"
@@ -48,7 +66,7 @@ export default function Navbar() {
       stroke="currentColor"
     >
       <circle cx="11" cy="11" r="8"></circle>
-      <path d="m21 21-4.3-4.3"></path>
+      <path d="m25 21-4.3-4.3"></path>
     </g>
   </svg>
   <input type="search" required placeholder="Search" />
@@ -59,7 +77,7 @@ export default function Navbar() {
 
   {/* sun icon */}
   <svg
-    className="swap-off h-8 w-8 fill-current"
+    className="swap-off h-7 w-7 fill-current"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24">
     <path
@@ -68,7 +86,7 @@ export default function Navbar() {
 
   {/* moon icon */}
   <svg
-    className="swap-on h-8 w-8 fill-current"  
+    className="swap-on h-7 w-7 fill-current"  
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24">
     <path
