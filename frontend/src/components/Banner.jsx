@@ -1,5 +1,7 @@
 import React from 'react'
-import banner from  "../../public/Banner.webp"
+import Bannerimg from "../assets/Banner.webp";
+
+
 
 function Banner() {
   return (
@@ -39,11 +41,11 @@ function Banner() {
         </div>
                  
         <div className= 'order-1 w-full md:w-1/2'>
-        <img src={banner} className="w-120 h-92 mt:12 md:mt-32" alt='' />
+        <img src={Bannerimg} className="w-120 h-92 mt:12 md:mt-32" alt='' />
         </div>
     </div>
     </>
   )
 }
 
-export default Banner
+export default Banner;

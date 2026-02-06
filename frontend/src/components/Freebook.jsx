@@ -2,7 +2,9 @@ import React from 'react'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import list from  "../../public/list.json"
+import list from "../assets/list.json";
+import Card from "./Card";
+
  
 
 function Freebook() {
@@ -55,7 +57,7 @@ function Freebook() {
     <div>
       <Slider {...settings}>
      {filterData.map((item)=>(
-        <Card/>
+        <Card item={item} key={item.id}/>
      ))}
       </Slider>
     </div>
