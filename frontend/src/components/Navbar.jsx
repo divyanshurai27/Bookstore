@@ -3,20 +3,17 @@ import React, { useEffect, useState } from 'react'
 export default function Navbar() {
 
   const [sticky,setsticky] =useState(false)
-  useEffect(()=>{
-    const handleScroll =()=>{
-      if(window.scrollY>0){
-        setsticky(true)
-      }else{
-        setsticky(false)
-      }
-      Window.addEventListener('scroll',handleScroll 
-      )
-      return ()=>{
-        window.removeEventListener('scroll',handleScroll)
-      }
-    }
-  },[])
+useEffect(() => {
+  const handleScroll = () => {
+    setsticky(window.scrollY > 0);
+  };
+
+  window.addEventListener("scroll", handleScroll);
+
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+  };
+}, []);
   const naviteams = (<>
   
    <li><a>Home</a></li>
@@ -27,8 +24,8 @@ export default function Navbar() {
   </>)
   return (
     <> 
-   <div className={`max-w-screen-2xl conatainer mx-auto md:px-20 px-4 fixed top-0 right-0 left-0 ${
-    sticky?"sticky-navbar shadow-md bg-base-300 duration-300 transition-all ease-in-out":" "
+   <div className={`max-w-screen-2xl conatainer mx-auto md:px-20 px-4 fixed top-0 right-0 left-0 z-50 ${
+    sticky?"sticky-navbar shadow-md bg-base-300 duration-300 transition-all ease-in-out":""
    }`}>
   <div className="navbar-start">
     <div className="dropdown">
@@ -47,7 +44,7 @@ export default function Navbar() {
         
       </ul>
     </div>
-    <a className=" text-2xl font cursor-pointer">Redify</a>
+    <a className=" text-2xl font cursor-pointer">ReDiFy</a>
   </div><div  className="navbar-end space-x-3">
   
   <div className="navbar-center hidden lg:flex">
