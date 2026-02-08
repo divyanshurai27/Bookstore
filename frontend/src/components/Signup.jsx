@@ -7,7 +7,8 @@ function Signup() {
   return (
     <>
       <div className='flex h-screen items-center justify-center'>
-        <div  className='border-[2px] shadow-md p-5 rounded-md w-[600px]'>
+        <div className='relative border-[2px] shadow-md p-5 rounded-md w-[600px]'>
+
           <div className="">
             <form method="dialog">
               {/* if there is a button in form, it will close the modal */}
