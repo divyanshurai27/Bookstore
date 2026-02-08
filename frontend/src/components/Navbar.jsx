@@ -34,7 +34,7 @@ useEffect(() => {
   
    <li><a href='/'>Home</a></li>
       <li><a href='/course'>Course</a></li>
-      <li><a>Contact</a></li>
+      <li><a href="/contact">Contact</a></li>
 
       <li><a>About</a></li>
   </>)
