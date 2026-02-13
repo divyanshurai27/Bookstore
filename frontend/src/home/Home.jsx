@@ -4,6 +4,8 @@ import Banner from '../components/Banner'
 import Freebook from '../components/Freebook'
 import Footer from '../components/Footer'
 
+import Contacts from '../contacts/Contacts'
+
 function Home() {
   return (
 
@@ -13,7 +15,9 @@ function Home() {
      <Navbar/>  
      <Banner/>
      <Freebook/>
-     <Footer/>  
+     <Contacts/>
+     <Footer/> 
+
 
 
     </div>

@@ -26,7 +26,7 @@ function Contact() {
         </div>
 
         {/* CONTACT FORM SECTION */}
-        <div className="mt-12 flex justify-center">
+        <div className="mt-17 mb-24 flex justify-center">
           <div className="w-full md:w-2/3 lg:w-1/2 border-[2px] shadow-md p-6 rounded-md">
 
             <form className="space-y-5">

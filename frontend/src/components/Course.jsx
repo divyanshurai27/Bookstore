@@ -7,8 +7,9 @@ function Course() {
   return (
     <>
     <div className='max-w-screen-2xl conatainer mx-auto md:px-20 px-4'>
-        <div className='mt-28 iteams-center justify-center text-center'>
-        <h1 className='text:4xl  md:text-4xl'>We are delighted to have you {" "}
+        <div className='mt-28 items-center 
+             justify-center text-center'>
+        <h1 className='text:4xl  md:text-4'>We are delighted to have you {" "}
             <span className='text-pink-600'>here! :)
             </span> 
          </h1><p className='mt-12'> Stories worth slowing down for. A curated bookstore for those who love the smell of pages, the weight of words, and the magic between lines. </p>
