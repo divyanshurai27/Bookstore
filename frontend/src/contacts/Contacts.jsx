@@ -1,7 +1,8 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
+
 import Footer from '../components/Footer'
 import Contact from '../components/Contact'
+import Navbar from '../components/TempNavbar'
 
 function Contacts() {
   return (

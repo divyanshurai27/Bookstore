@@ -1,10 +1,10 @@
 import React from 'react'
-import Navbar from '../components/navbar'
+
 import Banner from '../components/Banner'
 import Freebook from '../components/Freebook'
 import Footer from '../components/Footer'
-
 import Contacts from '../contacts/Contacts'
+import Navbar from '../components/TempNavbar'
 
 function Home() {
   return (
