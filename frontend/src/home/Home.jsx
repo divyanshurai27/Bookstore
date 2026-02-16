@@ -15,7 +15,7 @@ function Home() {
      <Navbar/>  
      <Banner/>
      <Freebook/>
-     <Contacts/>
+     
      <Footer/> 
 
 
