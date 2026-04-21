@@ -1,13 +1,11 @@
-import book from "../modal/book.model.js"
+import Book from "../modal/book.model.js";
 
-export const  getBook = (req,resizeTo=>{
+export const getBook = async (req, res) => {
     try {
-        const book =  await book.find();
-        res.status(200).json(book);
-        
+        const books = await Book.find();
+        res.status(200).json(books);
     } catch (error) {
         console.log("Error", error);
         res.status(500).json(error);
-        
     }
-})
+};
