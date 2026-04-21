@@ -1,0 +1,28 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "mern project",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/divyanshurai27/Bookstore.git"
+  },
+  "author": "Dr7",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/divyanshurai27/Bookstore/issues"
+  },
+  "homepage": "https://github.com/divyanshurai27/Bookstore#readme",
+  "dependencies": {
+    "dotenv": "^17.3.1",
+    "expres": "^0.0.5",
+    "express": "^5.2.1",
+    "mongoose": "^9.5.0",
+    "nodemon": "^3.1.14"
+  }
+}
