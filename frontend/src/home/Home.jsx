@@ -1,9 +1,7 @@
 import React from 'react'
-
 import Banner from '../components/Banner'
 import Freebook from '../components/Freebook'
-import Footer from '../components/Footer'
-import Contacts from '../contacts/Contacts'
+import Footer from '../components/Footer' 
 import Navbar from '../components/TempNavbar'
 
 function Home() {

@@ -1,21 +1,21 @@
 import React from 'react'
-
 import Footer from '../components/Footer'
-import Contact from '../components/Contact'
 import Navbar from '../components/TempNavbar'
 
-function Contacts() {
+function signups() {
   return (
-      <>
+    <>
+    <div>
+
    <Navbar/>
    
-   <Contact/> 
+    
     
    <Footer/>
   
-   
-  </>
+    </div>
+    </>
   )
 }
 
-export default Contacts 
+export default signups
