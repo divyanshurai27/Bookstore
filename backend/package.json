@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/divyanshurai27/Bookstore#readme",
   "dependencies": {
+    "axios": "^1.15.2",
+    "cors": "^2.8.6",
     "dotenv": "^17.3.1",
     "expres": "^0.0.5",
     "express": "^5.2.1",
