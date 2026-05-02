@@ -1,11 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Login from "./Login";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import toast from "react-hot-toast";
 
 function Signup() {
+
+  const location = useLocation();
+  const navigate = useNavigate()
+  const from =location.state?.from?.pathname || "/";
    const {
           register,
           handleSubmit,
@@ -23,8 +27,10 @@ function Signup() {
         const res = await axios.post("http://localhost:4001/user/signup", userInfo);
         if (res.data) {
           toast.success("Signup successful!");
-          localStorage.setItem("Users", JSON.stringify(res.data.user));
+          navigate(from,{replace:true});
+          
         }
+        localStorage.setItem("Users", JSON.stringify(res.data.user));
       } catch (error) {
         const message = error?.response?.data?.message || "Signup failed";
         toast.error(message);

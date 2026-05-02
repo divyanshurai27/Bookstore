@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import axios from 'axios';
+import toast from "react-hot-toast";
 
 function Login() {
     const {
@@ -9,9 +11,27 @@ function Login() {
         formState: { errors },
     } = useForm();
 
-    const onSubmit = (data) => {
-        console.log(data);
-        document.getElementById("my_modal_3").close();
+    const onSubmit = async (data) => {
+        const userInfo = {
+            email: data.email,
+            password: data.password,
+        };
+        try {
+            const res = await axios.post("http://localhost:4001/user/login", userInfo);
+            if (res.data) {
+                toast.success("Login successfully!");
+                setTimeout(()=>{
+               document.getElementById("my_modal_3").close();
+                localStorage.setItem("Users", JSON.stringify(res.data.user));
+                window.location.reload();
+                },1000);       
+            }
+        } catch (error) {
+            const message = error?.response?.data?.message || "Login failed";
+            toast.error(message);
+            setTimeout(()=>{},3000)
+            console.log(error);
+        }
     };
 
     return (
@@ -38,6 +58,7 @@ function Login() {
                             type="email"
                             placeholder="Enter your email"
                             className="w-80 px-3 py-1 border rounded-md outline-none"
+                            autoComplete="email"
                             {...register("email", { required: true })}
                         />
                         <br />
@@ -55,6 +76,7 @@ function Login() {
                             type="password"
                             placeholder="Enter your password"
                             className="w-80 px-3 py-1 border rounded-md outline-none"
+                            autoComplete="current-password"
                             {...register("password", { required: true })}
                         />
                         <br />
