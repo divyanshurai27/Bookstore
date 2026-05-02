@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Login from "./Login";
 import { useForm } from "react-hook-form";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 function Signup() {
    const {
@@ -11,9 +13,23 @@ function Signup() {
       } = useForm();
   
 
-    const onSubmit = (data) => {
-        console.log(data);
-        document.getElementById("my_modal_3").close();
+    const onSubmit = async (data) => {
+      const userInfo = {
+        fullname: data.fullname,
+        email: data.email,
+        password: data.password,
+      };
+      try {
+        const res = await axios.post("http://localhost:4001/user/signup", userInfo);
+        if (res.data) {
+          toast.success("Signup successful!");
+          localStorage.setItem("Users", JSON.stringify(res.data.user));
+        }
+      } catch (error) {
+        const message = error?.response?.data?.message || "Signup failed";
+        toast.error(message);
+        console.log(error);
+      }
     };
 
   
@@ -41,11 +57,12 @@ function Signup() {
               type="text"
               placeholder="Enter your full name"
               className="w-80 px-3 py-1 border rounded-md outline-none"
-              {...register("name", { required: true })}
+              autoComplete="name"
+              {...register("fullname", { required: true })}
               
             />
              <br />
-                        {errors.name && (
+                        {errors.fullname && (
                             <span className="text-sm text-red-500">
                                 This field is required
                             </span>
@@ -59,6 +76,7 @@ function Signup() {
               type="email"
               placeholder="Enter your email"
               className="w-80 px-3 py-1 border rounded-md outline-none"
+              autoComplete="email"
               
                {...register("email", { required: true })}
                         
@@ -78,6 +96,7 @@ function Signup() {
               type="password"
               placeholder="Enter your password"
               className="w-80 px-3 py-1 border rounded-md outline-none"
+              autoComplete="new-password"
               
               {...register("password", { required: true })}
             />
